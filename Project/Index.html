@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Airlines International Travel</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand fs-5" href="#"
+          ><span class="text-primary">AIR</span>LINES <br />
+          <span class="text-white">INTERNATIONAL TRAVELS</span></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Our Aircraft</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Safety</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Charters</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contacts</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero text-center text-white">
+      <div class="container">
+        <h1>COMFORT <span>Guaranteed</span></h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <a href="#" class="btn btn-primary">Order Tickets Online</a>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+      <div class="row">
+        <!-- Flight Planner -->
+        <div
+          class="col-md-4"
+          style="background-color: rgb(244, 242, 242); padding: 10px"
+        >
+          <h4 class="text-center">Your Flight Planner</h4>
+          <form id="flight-form">
+            <div class="mb-3" id="divcheck">
+              <label
+                ><input
+                  type="radio"
+                  name="trip"
+                  value="round"
+                  checked
+                  id="round"
+                />
+                Round Trip</label
+              >
+              <label
+                ><input type="radio" name="trip" value="oneway" /> One
+                Way</label
+              ><br />
+              <label
+                ><input type="radio" name="trip" value="emptyleg" /> Empty
+                Leg</label
+              >
+              <label
+                ><input type="radio" name="trip" value="multi" />
+                Multi-Leg</label
+              >
+            </div>
+            <div class="mb-3">
+              <label>Leaving From</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="City or Airport Code"
+                id="leavfrom"
+              />
+            </div>
+            <div class="mb-3">
+              <label>Going To</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="City or Airport Code"
+                id="goingto"
+              />
+            </div>
+            <div class="mb-3">
+              <label>Departure Date and Time</label>
+              <div class="d-flex gap-2">
+                <input
+                  type="date"
+                  class="form-control"
+                  id="departDate"
+                  required
+                />
+                <input
+                  type="time"
+                  class="form-control"
+                  id="departTime"
+                  required
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label>Return Date and Time</label>
+              <div class="d-flex gap-2">
+                <input type="date" class="form-control" id="returnDate" />
+                <input type="time" class="form-control" id="returnTime" />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label>Passengers</label>
+              <input
+                type="number"
+                class="form-control"
+                placeholder="Number of passengers"
+                id="passengers"
+              />
+            </div>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="getairData()"
+            >
+              GO!
+            </button>
+          </form>
+
+          <!-- Recent News -->
+          <div class="mt-4">
+            <h5>Recent News</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#">Nemo enim ipsam voluptatem quia</a><br /><small
+                  >November 5, 2010</small
+                >
+              </li>
+              <li>
+                <a href="#">Voluptas aspernatur aut odit aut fugit</a
+                ><br /><small>November 1, 2010</small>
+              </li>
+              <li>
+                <a href="#">Sed quia consequuntur magni</a><br /><small
+                  >October 23, 2010</small
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Welcome Section -->
+        <div class="col-md-8">
+          <h4>Welcome to our Website!</h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec
+            nisi vel orci pede justo eros, elit eget tellus eu nunc.
+          </p>
+          <h5>Aircraft</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <button
+            class="btn btn-outline-secondary bg-dark text-white"
+            onclick="window.location.href=' readMore.html' "
+          >
+            Read
+          </button>
+          <h5>Charters</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <button class="btn btn-primary">Fleet</button>
+          <button class="btn btn-outline-secondary bg-dark text-white">
+            Reservation
+          </button>
+
+          <!-- Our Clients -->
+          <div class="mt-5">
+            <h5>Our Clients</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+              blandit risus et turpis.
+            </p>
+            <div class="alert alert-info">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+              <p><strong>Mr. Thomas Lloyd</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+      <p>
+        &copy; 2010 <a href="#" class="text-white">Domain Name</a>. All Rights
+        Reserved.
+      </p>
+      <p>Free <a href="#" class="text-white">CSS Templates</a> by TemplateMo</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

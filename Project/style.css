@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar-brand span {
+    color: #0d6efd;
+}
+
+.hero {
+   height: 500px;
+    background: url('Images/hero_image.jpg') no-repeat center center;
+    background-size: 100% 100% ;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    color: black;
+    font-size: 2.5rem;
+}
+
+.hero span {
+    font-weight: normal;
+    display: block;
+}
+
+.hero p {
+    margin-bottom: 20px;
+    color: black;
+}
+#divcheck{
+    margin-left: 100px; 
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    #divcheck{
+        padding-left: 60px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero {
+        padding: 40px 10px;
+    }
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+}
