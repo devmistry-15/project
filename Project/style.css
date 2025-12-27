@@ -1,51 +1,72 @@
-body {
-    font-family: Arial, sans-serif;
-}
 
-.navbar-brand span {
-    color: #0d6efd;
-}
-
-.hero {
-   height: 500px;
-    background: url('Images/hero_image.jpg') no-repeat center center;
-    background-size: 100% 100% ;
-    padding: 80px 20px;
-}
-
-.hero h1 {
-    color: black;
-    font-size: 2.5rem;
-}
-
-.hero span {
-    font-weight: normal;
-    display: block;
-}
-
-.hero p {
-    margin-bottom: 20px;
-    color: black;
-}
-#divcheck{
-    margin-left: 100px; 
-    margin-top: 20px;
-}
-
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 1.8rem;
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f4f4f4;
     }
-    #divcheck{
-        padding-left: 60px;
-    }
-}
 
-@media (max-width: 576px) {
+    /* NAVBAR */
+    .navbar {
+      background: linear-gradient(#2b2f33, #1e2124);
+    }
+
+    /* HERO */
     .hero {
-        padding: 40px 10px;
+      background: linear-gradient(
+          rgba(0, 0, 0, 0.4),
+          rgba(0, 0, 0, 0.4)
+        ),
+         url("Images/hero_image.jpg");
+      background-size: cover;
+      background-position: 100% 100%;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      color: white;
     }
+
     .hero h1 {
-        font-size: 1.5rem;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: bold;
     }
-}
+
+    .hero p {
+      max-width: 400px;
+      font-size: 0.95rem;
+    }
+
+    /* LEFT PANEL */
+    .panel {
+      background: #efefef;
+      padding: 20px;
+    }
+
+    .panel h5 {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+
+    .panel input {
+      font-size: 0.85rem;
+    }
+
+    /* BUTTONS */
+    .btn-dark-custom {
+      background: linear-gradient(#4c4c4c, #2f2f2f);
+      color: white;
+      border: none;
+    }
+
+    /* CLIENT BOX */
+    .client-box {
+      background: #5fa9c9;
+      color: white;
+      padding: 15px;
+      border-radius: 4px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: linear-gradient(#2b2f33, #1e2124);
+      color: #ccc;
+      font-size: 0.8rem;
+    }
