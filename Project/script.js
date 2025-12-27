@@ -1,68 +1,77 @@
-// Wait until the page loads
-document.addEventListener("DOMContentLoaded", function () {
-    const tripRadios = document.getElementsByName("trip");
-    const returnDate = document.getElementById("returnDate");
-    const returnTime = document.getElementById("returnTime");
 
-    // Show or hide return fields based on trip type
-    tripRadios.forEach(radio => {
-        radio.addEventListener("change", function () {
-            if (this.value === "oneway" || this.value === "emptyleg") {
-                returnDate.parentElement.style.display = "none";
-                returnTime.parentElement.style.display = "none";
-            } else {
-                returnDate.parentElement.style.display = "block";
-                returnTime.parentElement.style.display = "block";
-            }
-        });
-    });
-
-    // Initialize based on default selection
-    if (document.getElementById("round").checked) {
-        returnDate.parentElement.style.display = "block";
-        returnTime.parentElement.style.display = "block";
-    } else {
-        returnDate.parentElement.style.display = "none";
-        returnTime.parentElement.style.display = "none";
-    }
+    // Wait until DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+  tripTypeHandler();
+  heroButtonHandler();
 });
 
-// Function to gather and validate flight data
-function getairData() {
-    const trip = document.querySelector('input[name="trip"]:checked').value;
-    const from = document.getElementById("leavfrom").value.trim();
-    const to = document.getElementById("goingto").value.trim();
-    const departDate = document.getElementById("departDate").value;
-    const departTime = document.getElementById("departTime").value;
-    const returnDate = document.getElementById("returnDate").value;
-    const returnTime = document.getElementById("returnTime").value;
-    const passengers = document.getElementById("passengers").value.trim();
+// ------------------------------
+// Trip Type Logic
+// ------------------------------
+function tripTypeHandler() {
+  const tripRadios = document.querySelectorAll("input[name='trip']");
+  const returnDate = document.getElementById("returnDate");
+  const returnTime = document.getElementById("returnTime");
 
-    // Validate required fields
-    if (!from || !to || !departDate || !departTime || !passengers || passengers <= 0) {
-        alert("Please fill in all required fields correctly.");
-        return;
-    }
-
-    // For round and multi trips, validate return date/time
-    if ((trip === "round" || trip === "multi") && (!returnDate || !returnTime)) {
-        alert("Please fill in the return date and time.");
-        return;
-    }
-
-    // Create summary message
-    let summary = `Booking Summary:\n`;
-    summary += `Trip Type: ${trip.toUpperCase()}\n`;
-    summary += `From: ${from}\n`;
-    summary += `To: ${to}\n`;
-    summary += `Departure: ${departDate} at ${departTime}\n`;
-
-    if (trip === "round" || trip === "multi") {
-        summary += `Return: ${returnDate} at ${returnTime}\n`;
-    }
-
-    summary += `Passengers: ${passengers}\n`;
-
-    // Show the summary in an alert
-    alert(summary);
+  tripRadios.forEach((radio) => {
+    radio.addEventListener("change", () => {
+      if (radio.value === "oneway") {
+        returnDate.disabled = true;
+        returnTime.disabled = true;
+        returnDate.value = "";
+        returnTime.value = "";
+      } else {
+        returnDate.disabled = false;
+        returnTime.disabled = false;
+      }
+    });
+  });
 }
+
+// ------------------------------
+// Flight Form Validation
+// ------------------------------
+function getairData() {
+  const from = document.getElementById("leavfrom").value.trim();
+  const to = document.getElementById("goingto").value.trim();
+  const departDate = document.getElementById("departDate").value;
+  const departTime = document.getElementById("departTime").value;
+  const passengers = document.getElementById("passengers").value;
+
+  if (!from || !to) {
+    alert("Please enter departure and destination locations.");
+    return;
+  }
+
+  if (!departDate || !departTime) {
+    alert("Please select departure date and time.");
+    return;
+  }
+
+  if (passengers <= 0) {
+    alert("Please enter a valid number of passengers.");
+    return;
+  }
+
+  // Simulated booking success
+  alert(
+    `Flight Search Successful!\n\nFrom: ${from}\nTo: ${to}\nPassengers: ${passengers}`
+  );
+}
+
+// ------------------------------
+// Hero Button Action
+// ------------------------------
+function heroButtonHandler() {
+  const heroBtn = document.querySelector(".hero a");
+
+  if (heroBtn) {
+    heroBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      document
+        .getElementById("flight-form")
+        .scrollIntoView({ behavior: "smooth" });
+    });
+  }
+}
+
